@@ -1,0 +1,16 @@
+default[:alm][:name] = "alm-report"
+default[:alm][:host] = "127.0.0.1"
+default[:alm][:environment] = "development"
+default[:alm][:useragent] = "ALM Reports"
+default[:alm][:hostname] = "example.com"
+default[:alm][:api_key] = nil
+default[:alm][:admin] = { username: "articlemetrics", name: "Admin", email: "admin@example.com", password: nil }
+default[:alm][:mail] = { address: "localhost", port: 25, domain: "localhost", enable_starttls_auto: true }
+default[:alm][:key] = nil
+default[:alm][:secret] = nil
+default[:alm][:cas_url] = "https://example.com"
+default[:alm][:cas_prefix] = "/cas"
+default[:alm][:user] = "vagrant"
+default[:alm][:group] = "www-data"
+default[:alm][:ip_range_us] = nil
+default[:alm][:ip_range_uk] = nil
