@@ -9,7 +9,7 @@ gem_package "bundler" do
 end
 
 # Create shared folders and set permissions
-%w{ alm-report alm-report/current alm-report/shared alm-report/shared/config alm-report/releases }.each do |dir|
+%w{ alm-report alm-report/current alm-report/current/public alm-report/shared alm-report/shared/config alm-report/releases }.each do |dir|
   directory "/var/www/#{dir}" do
     owner node[:alm][:user]
     group node[:alm][:group]
