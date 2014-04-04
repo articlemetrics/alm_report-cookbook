@@ -1,7 +1,3 @@
-execute "apt-get update" do
-  command "apt-get update"
-end
-
 # Install required packages
 %w{ruby1.9.3 curl}.each do |pkg|
   package pkg do
