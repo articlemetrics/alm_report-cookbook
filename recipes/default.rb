@@ -49,9 +49,9 @@ require 'securerandom'
 # Create new settings.yml unless it exists already
 # Set these passwords in config.json to keep them persistent
 unless File.exists?("/var/www/alm-report/shared/config/settings.yml")
-  node.set['alm_report']['key'] = SecureRandom.hex(30) unless node['alm']['key']
-  node.set['alm_report']['secret'] = SecureRandom.hex(30) unless node['alm']['secret']
-  node.set['alm_report']['api_key'] = SecureRandom.hex(30) unless node['alm']['api_key']
+  node.set['alm_report']['key'] = SecureRandom.hex(30) unless node['alm_report']['key']
+  node.set['alm_report']['secret'] = SecureRandom.hex(30) unless node['alm_report']['secret']
+  node.set['alm_report']['api_key'] = SecureRandom.hex(30) unless node['alm_report']['api_key']
 else
   settings = YAML::load(IO.read("/var/www/alm-report/shared/config/settings.yml"))
   rest_auth_site_key = settings["#{node[:alm_report][:environment]}"]["rest_auth_site_key"]
