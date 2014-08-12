@@ -45,7 +45,7 @@ end
   end
 end
 
-template "/var/www/alm-report/shared/config/settings.yml" do
+template "/var/www/#{node[:alm_report][:name]}/shared/config/settings.yml" do
   source 'settings.yml.erb'
   owner node[:alm_report][:user]
   group node[:alm_report][:group]
@@ -54,7 +54,7 @@ end
 
 # Create new database.yml unless it exists already
 # Set these passwords in config.json to keep them persistent
-unless File.exists?("/var/www/alm-report/shared/config/database.yml")
+unless File.exists?("/var/www/#{node[:alm_report][:name]}/shared/config/database.yml")
   node.set_unless['mysql']['server_root_password'] = SecureRandom.hex(8)
   node.set_unless['mysql']['server_repl_password'] = SecureRandom.hex(8)
   node.set_unless['mysql']['server_debian_password'] = SecureRandom.hex(8)
@@ -69,7 +69,7 @@ else
   database_exists = true
 end
 
-template "/var/www/alm-report/shared/config/database.yml" do
+template "/var/www/#{node[:alm_report][:name]}/shared/config/database.yml" do
   source 'database.yml.erb'
   owner node[:alm_report][:user]
   group node[:alm_report][:group]
@@ -80,7 +80,7 @@ include_recipe "mysql::server"
 include_recipe "database::mysql"
 
 # Add configuration settings to database seed files
-template "/var/www/alm-report/shared/db/seeds/_custom_sources.rb" do
+template "/var/www/#{node[:alm_report][:name]}/shared/db/seeds/_custom_sources.rb" do
   source '_custom_sources.rb.erb'
   owner node[:alm_report][:user]
   group node[:alm_report][:group]
@@ -104,7 +104,7 @@ execute "disable-default-site" do
 end
 
 web_app "alm-report" do
-  docroot "/var/www/alm-report/current/public"
+  docroot "/var/www/#{node[:alm_report][:name]}/current/public"
   server_name node[:alm_report][:host]
   server_aliases [ node[:alm_report][:host] ]
   rails_env node[:alm_report][:environment]
