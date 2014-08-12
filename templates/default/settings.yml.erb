@@ -1,11 +1,6 @@
 # Application-wide settings.
 
 defaults: &defaults
-  # secret keys
-  rest_auth_site_key: <%= node[:alm_report][:key] %>
-  rest_auth_digest_stretches: 10
-  secret_token: <%= node[:alm_report][:secret] %>
-
   # Number of articles to display per page on the add-articles and preview-list
   # pages.  (The results metrics page uses a different, smaller value.)
   results_per_page: 25
