@@ -36,7 +36,7 @@ service 'hostname' do
 end
 
 # Create shared folders and set permissions
-%w{ alm-report alm-report/current alm-report/shared alm-report/releases }.each do |dir|
+%w{ alm-report alm-report/current alm-report/shared alm-report/shared/config alm-report/releases }.each do |dir|
   directory "/var/www/#{dir}" do
     owner node[:alm_report][:user]
     group node[:alm_report][:group]
