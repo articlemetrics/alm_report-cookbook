@@ -79,14 +79,6 @@ end
 include_recipe "mysql::server"
 include_recipe "database::mysql"
 
-# Add configuration settings to database seed files
-template "/var/www/alm-report/shared/db/seeds/_custom_sources.rb" do
-  source '_custom_sources.rb.erb'
-  owner node[:alm_report][:user]
-  group node[:alm_report][:group]
-  mode 0644
-end
-
 # Create default MySQL database
 mysql_database "alm-report_#{node[:alm_report][:environment]}" do
   connection(
