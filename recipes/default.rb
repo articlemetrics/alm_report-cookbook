@@ -36,7 +36,7 @@ service 'hostname' do
 end
 
 # Create shared folders and set permissions
-%w{ alm alm/current alm/shared alm/releases }.each do |dir|
+%w{ alm-report alm-report/current alm-report/shared alm-report/releases }.each do |dir|
   directory "/var/www/#{dir}" do
     owner node[:alm_report][:user]
     group node[:alm_report][:group]
@@ -48,12 +48,12 @@ end
 require 'securerandom'
 # Create new settings.yml unless it exists already
 # Set these passwords in config.json to keep them persistent
-unless File.exists?("/var/www/alm/shared/config/settings.yml")
+unless File.exists?("/var/www/alm-report/shared/config/settings.yml")
   node.set['alm']['key'] = SecureRandom.hex(30) unless node['alm']['key']
   node.set['alm']['secret'] = SecureRandom.hex(30) unless node['alm']['secret']
   node.set['alm']['api_key'] = SecureRandom.hex(30) unless node['alm']['api_key']
 else
-  settings = YAML::load(IO.read("/var/www/alm/shared/config/settings.yml"))
+  settings = YAML::load(IO.read("/var/www/alm-report/shared/config/settings.yml"))
   rest_auth_site_key = settings["#{node[:alm_report][:environment]}"]["rest_auth_site_key"]
   secret_token = settings["#{node[:alm_report][:environment]}"]["secret_token"]
   api_key = settings["#{node[:alm_report][:environment]}"]["api_key"]
@@ -63,7 +63,7 @@ else
   node.set_unless['alm']['api_key'] = api_key
 end
 
-template "/var/www/alm/shared/config/settings.yml" do
+template "/var/www/alm-report/shared/config/settings.yml" do
   source 'settings.yml.erb'
   owner node[:alm_report][:user]
   group node[:alm_report][:group]
@@ -72,13 +72,13 @@ end
 
 # Create new database.yml unless it exists already
 # Set these passwords in config.json to keep them persistent
-unless File.exists?("/var/www/alm/shared/config/database.yml")
+unless File.exists?("/var/www/alm-report/shared/config/database.yml")
   node.set_unless['mysql']['server_root_password'] = SecureRandom.hex(8)
   node.set_unless['mysql']['server_repl_password'] = SecureRandom.hex(8)
   node.set_unless['mysql']['server_debian_password'] = SecureRandom.hex(8)
   database_exists = false
 else
-  database = YAML::load(IO.read("/var/www/alm/shared/config/database.yml"))
+  database = YAML::load(IO.read("/var/www/alm-report/shared/config/database.yml"))
   server_root_password = database["#{node[:alm_report][:environment]}"]["password"]
 
   node.set_unless['mysql']['server_root_password'] = server_root_password
@@ -87,7 +87,7 @@ else
   database_exists = true
 end
 
-template "/var/www/alm/shared/config/database.yml" do
+template "/var/www/alm-report/shared/config/database.yml" do
   source 'database.yml.erb'
   owner node[:alm_report][:user]
   group node[:alm_report][:group]
@@ -98,7 +98,7 @@ include_recipe "mysql::server"
 include_recipe "database::mysql"
 
 # Add configuration settings to database seed files
-template "/var/www/alm/shared/db/seeds/_custom_sources.rb" do
+template "/var/www/alm-report/shared/db/seeds/_custom_sources.rb" do
   source '_custom_sources.rb.erb'
   owner node[:alm_report][:user]
   group node[:alm_report][:group]
