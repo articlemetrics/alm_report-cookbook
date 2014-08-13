@@ -25,12 +25,16 @@ end
 
 file '/etc/hostname' do
   content "#{node[:alm_report][:hostname]}\n"
-  notifies :reload
+  notifies :reload, "ohai[reload]"
 end
 
 file '/etc/hosts' do
   content "127.0.0.1  localhost #{node[:alm_report][:hostname]}\n::1 ip6-localhost ip6-loopback #{node[:alm_report][:hostname]}\nfe00::0 ip6-localnet\nff00::0 ip6-mcastprefix\nff02::1 ip6-allnodes\nff02::2 ip6-allrouters\nff02::3 ip6-allhosts\n"
-  notifies :reload
+  notifies :reload, "ohai[reload]"
+end
+
+ohai "reload" do
+  action :nothing
 end
 
 # Create shared folders and set permissions
