@@ -5,7 +5,6 @@ default[:alm_report][:useragent] = "ALM Reports"
 default[:alm_report][:hostname] = "example.com"
 default[:alm_report][:api_key] = nil
 default[:alm_report][:admin] = { username: "articlemetrics", name: "Admin", email: "admin@example.com", password: nil }
-default[:alm_report][:mail] = { address: "localhost", port: 25, domain: "localhost", enable_starttls_auto: true }
 default[:alm_report][:key] = nil
 default[:alm_report][:secret] = nil
 default[:alm_report][:user] = "vagrant"

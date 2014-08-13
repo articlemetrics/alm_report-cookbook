@@ -1,7 +1,7 @@
 # Add PPA for Ruby 2.x
 apt_repository 'brightbox-ruby-ng' do
   uri          'http://ppa.launchpad.net/brightbox/ruby-ng/ubuntu'
-  distribution 'precise'
+  distribution 'trusty'
   components   ['main']
   keyserver    'keyserver.ubuntu.com'
   key          'C3173AA6'
