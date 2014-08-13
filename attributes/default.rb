@@ -11,4 +11,5 @@ default[:alm_report][:user] = "vagrant"
 default[:alm_report][:group] = "www-data"
 default[:alm_report][:ip_range_us] = nil
 default[:alm_report][:ip_range_uk] = nil
-default['apache']['version'] = '2.4'
+
+default[:apache][:version] = '2.4'
