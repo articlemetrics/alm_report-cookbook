@@ -22,8 +22,7 @@
   CustomLog <%= node['apache']['log_dir'] %>/<%= @params[:name] %>-access.log combined
 
   RewriteEngine On
-  RewriteLog <%= node['apache']['log_dir'] %>/<%= @application_name %>-rewrite.log
-  RewriteLogLevel 0
+  LogLevel rewrite:trace1
   # Canonical host
   RewriteCond %{HTTP_HOST}   !^<%= @params[:server_name] %> [NC]
   RewriteCond %{HTTP_HOST}   !^$
