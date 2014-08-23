@@ -63,7 +63,7 @@ unless File.exists?("/var/www/alm-report/shared/config/database.yml")
   database_exists = false
 else
   database = YAML::load(IO.read("/var/www/alm-report/shared/config/database.yml"))
-  server_root_password = database["#{node['alm_report']['environment']}"]['password']
+  server_root_password = database[node['alm_report']['environment']]['password']
 
   node.set_unless['mysql']['server_root_password'] = server_root_password
   node.set_unless['mysql']['server_repl_password'] = server_root_password
