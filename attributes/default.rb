@@ -1,5 +1,5 @@
 default['alm_report']['name'] = 'alm-report'
-default['alm_report']['host'] = '33.33.44.55'
+default['alm_report']['host'] = '10.2.2.2'
 default['alm_report']['environment'] = 'development'
 default['alm_report']['useragent'] = 'ALM Reports'
 default['alm_report']['hostname'] = 'example.com'

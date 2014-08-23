@@ -102,7 +102,7 @@ web_app "alm-report" do
   host = node['alm_report']['host']
 
   # Use the EC2 instance's public IP as hostname
-  if node['alm_report']['provider'] == 'aws'
+  if node['alm_report']['provider'] == 'aws' && host == '10.2.2.2'
     require 'open-uri'
     host = open('http://169.254.169.254/latest/meta-data/public-ipv4').read
   end
