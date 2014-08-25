@@ -22,7 +22,7 @@ defaults: &defaults
 
   alm_url: http://alm.plos.org/api/v3/articles
 
-  alm_api_key: <%= node[:alm_report][:api_key] %>
+  alm_api_key: <%= node['alm_report']['api_key'] %>
 
   # Max number of articles to request stats for per request.
   alm_max_articles_per_request: 30
@@ -47,8 +47,8 @@ defaults: &defaults
   # This should be kept in sync with
   # http://intranet.plos.org/it/ops/priv/SitePages/Network%20Topology.aspx
   internal_ip_ranges:
-    - <%= node[:alm_report][:ip_range_us] %>  # US office
-    - <%= node[:alm_report][:ip_range_uk] %>  # UK office
+    - <%= node['alm_report']['ip_range_us'] %>  # US office
+    - <%= node['alm_report']['ip_range_uk'] %>  # UK office
 
   journals: {
     "PLoSONE": "PLOS ONE",
