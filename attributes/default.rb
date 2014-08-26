@@ -19,3 +19,5 @@ default['alm_report']['ip_range_uk'] = nil
 
 default['apache']['version'] = '2.4'
 default['apache']['mpm'] = 'event'
+
+default['build-essential']['compile_time'] = true

@@ -12,6 +12,8 @@ package "openssl" do
   action :upgrade
 end
 
+include_recipe 'build-essential::default'
+
 # Install required packages
 %w{libxml2-dev libxslt-dev ruby2.1 ruby2.1-dev curl}.each do |pkg|
   package pkg do
