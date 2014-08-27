@@ -2,7 +2,6 @@
 include_recipe "mysql::server"
 include_recipe "passenger_nginx"
 include_recipe "memcached"
-include_recipe "phantomjs"
 include_recipe "capistrano"
 
 # create settings file
@@ -14,8 +13,7 @@ template "/var/www/#{node['capistrano']['application']}/shared/config/settings.y
 end
 
 # restart passenger
-file "/var/www/#{node['capistrano']['application']}/current/tmp/restart.txt" do
-  owner node['capistrano']['deploy_user']
-  group node['capistrano']['group']
-  action :create
+bash "restart passenger" do
+  cwd  "/var/www/#{node['capistrano']['application']}/current"
+  code "mkdir -p tmp && touch tmp/restart.txt"
 end

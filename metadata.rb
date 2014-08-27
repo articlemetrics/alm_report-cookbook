@@ -12,7 +12,6 @@ depends           "mysql"
 depends           "database"
 depends           "passenger_nginx"
 depends           "memcached"
-depends           "phantomjs"
 depends           "capistrano"
 
 %w{ ubuntu }.each do |platform|

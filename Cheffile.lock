@@ -106,6 +106,5 @@ DEPENDENCIES
   memcached (>= 0)
   mysql (~> 5.4.3)
   passenger_nginx (>= 0)
-  phantomjs (>= 0)
   ruby (>= 0)
 

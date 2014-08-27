@@ -13,5 +13,4 @@ cookbook "capistrano",
   :git => "git@github.com:articlemetrics/capistrano-cookbook.git"
 cookbook "mysql", '~> 5.4.3'
 cookbook 'database', '~> 2.3.0'
-cookbook "phantomjs"
 cookbook "memcached"
