@@ -48,6 +48,7 @@ end
 end
 
 template "/var/www/alm-report/shared/config/settings.yml" do
+  require 'securerandom'
   source 'settings.yml.erb'
   owner node['alm_report']['user']
   group node['alm_report']['group']
