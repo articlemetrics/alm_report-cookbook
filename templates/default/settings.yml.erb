@@ -65,7 +65,7 @@ defaults: &defaults
     "PLoSCollections": "PLOS Collections"
   }
 
-  secret_token: <%= SecureRandom.hex(34) %>
+  secret_token: <%= @params['secret_token'] %>
 
 development:
   <<: *defaults
