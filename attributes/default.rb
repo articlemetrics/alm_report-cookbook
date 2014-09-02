@@ -16,7 +16,6 @@ default['alm_report']['db'] = {
 # config/settings.yml
 default['alm_report']['settings'] = {
   "api_key"      => SecureRandom.hex(20),
-  "key"          => SecureRandom.hex(34),
   "secret_token" => SecureRandom.hex(34),
   "ip_range_us"  => nil,
   "ip_range_us"  => nil
