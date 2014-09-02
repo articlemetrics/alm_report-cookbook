@@ -1,8 +1,23 @@
-default['alm_report']['api_key'] = nil
-default['alm_report']['key'] = nil
-default['alm_report']['secret'] = nil
-default['alm_report']['ip_range_us'] = nil
-default['alm_report']['ip_range_uk'] = nil
+require 'securerandom'
 
-default['capistrano']['application'] = "alm-report"
-default['capistrano']['rails_env'] = "production"
+default['user'] = 'vagrant'
+default['ruby']['packages'] = %w{ libxml2-dev libxslt-dev libmysqlclient-dev nodejs }
+
+default['alm_report']['name'] = "alm-report"
+default['alm_report']['deploy_user'] = 'vagrant'
+default['alm_report']['group'] = 'vagrant'
+default['alm_report']['rails_env'] = "development"
+default['alm_report']['web'] = { 'default_server' => true }
+default['alm_report']['db'] = {
+  'user' => 'root',
+  'password' => node['mysql']['server_root_password'],
+  'host' => '127.0.0.1' }
+
+# config/settings.yml
+default['alm_report']['settings'] = {
+  "api_key"      => SecureRandom.hex(20),
+  "key"          => SecureRandom.hex(30),
+  "secret"       => SecureRandom.hex(30),
+  "ip_range_us"  => nil,
+  "ip_range_us"  => nil
+}
