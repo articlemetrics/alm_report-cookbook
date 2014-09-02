@@ -21,6 +21,6 @@ capistrano_template "config/settings.yml" do
 end
 
 # create required files and folders, and deploy application
-capistrano node['alm_report']['name'] do
+capistrano "alm-report" do
   action          [:config, :bundle_install, :precompile_assets, :migrate, :restart]
 end
