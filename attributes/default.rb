@@ -9,8 +9,8 @@ default['alm_report']['group'] = 'vagrant'
 default['alm_report']['rails_env'] = "development"
 default['alm_report']['web'] = { 'default_server' => true }
 default['alm_report']['db'] = {
-  'user' => 'root',
-  'password' => node['mysql']['server_root_password'],
+  'user' => 'vagrant',
+  'password' => SecureRandom.hex(10),
   'host' => '127.0.0.1' }
 
 # config/settings.yml
