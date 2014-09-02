@@ -19,6 +19,7 @@ end
 
 # create configuration files
 capistrano_template "config/settings.yml" do
+  require 'securerandom'
   source          "settings.yml.erb"
   application     node['alm_report']['name']
   params          node['alm_report']['settings']

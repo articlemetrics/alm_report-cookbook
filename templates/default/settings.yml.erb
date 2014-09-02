@@ -1,6 +1,10 @@
 # Application-wide settings.
 
 defaults: &defaults
+  # Configures whether the app starts in 'plos' or 'default' mode, which determines
+  # the layouts, styles other relevant properties.
+  mode: 'default'
+
   # Number of articles to display per page on the add-articles and preview-list
   # pages.  (The results metrics page uses a different, smaller value.)
   results_per_page: 25
@@ -60,6 +64,8 @@ defaults: &defaults
     "PLoSNTD": "PLOS Neglected Tropical Diseases",
     "PLoSCollections": "PLOS Collections"
   }
+
+  secret_token: <%= SecureRandom.hex(34) %>
 
 development:
   <<: *defaults
