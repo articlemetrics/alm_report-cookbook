@@ -11,7 +11,7 @@ default['alm_report']['web'] = { 'default_server' => true }
 default['alm_report']['db'] = {
   'user' => 'vagrant',
   'password' => SecureRandom.hex(10),
-  'host' => '127.0.0.1' }
+  'host' => 'localhost' }
 
 # config/settings.yml
 default['alm_report']['settings'] = {
