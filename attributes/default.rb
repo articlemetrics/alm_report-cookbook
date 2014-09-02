@@ -5,7 +5,7 @@ default['ruby']['packages'] = %w{ libxml2-dev libxslt-dev libmysqlclient-dev nod
 
 default['alm_report']['name'] = "alm-report"
 default['alm_report']['deploy_user'] = 'vagrant'
-default['alm_report']['group'] = 'vagrant'
+default['alm_report']['group'] = 'www-data'
 default['alm_report']['rails_env'] = "development"
 default['alm_report']['web'] = { 'default_server' => true }
 default['alm_report']['db'] = {
