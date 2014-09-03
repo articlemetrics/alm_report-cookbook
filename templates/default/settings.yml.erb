@@ -24,9 +24,11 @@ defaults: &defaults
   # If this is too high solr will return a 414 "Request-URI Too Large" error.
   solr_max_dois_per_request: 100
 
-  alm_url: http://alm.plos.org/api/v3/articles
+  alm_url: <%= @params['api_server'] %>/api/v3/articles
 
   alm_api_key: <%= @params['api_key'] %>
+
+  # admin username/password for ALM API server
   alm_username: <%= @params['username'] %>
   alm_password: <%= @params['password'] %>
 
