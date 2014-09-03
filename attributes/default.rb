@@ -4,7 +4,8 @@ default['ruby']['packages'] = %w{ libxml2-dev libxslt-dev libmysqlclient-dev nod
 
 # config/settings.yml
 default['alm_report']['settings'] = {
-  "api_server"          => "http://alm.plos.org",
+  "solr_url"            => "http://api.plos.org/search",
+  "url"                 => "http://alm.plos.org",
   "api_key"             => SecureRandom.hex(20),
   "username"            => nil,
   "password"            => nil,

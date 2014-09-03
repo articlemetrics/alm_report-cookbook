@@ -18,19 +18,19 @@ defaults: &defaults
   # all pages are available except the visualizations page.
   viz_limit: 500
 
-  solr_url: http://api.plos.org/search
+  solr_url: <%= @params['solr_url'] %>
 
   # Maximum number of articles we query for in a single request from solr.
   # If this is too high solr will return a 414 "Request-URI Too Large" error.
   solr_max_dois_per_request: 100
 
-  alm_url: <%= @params['api_server'] %>/api/v3/articles
-
-  alm_api_key: <%= @params['api_key'] %>
-
-  # admin username/password for ALM API server
-  alm_username: <%= @params['username'] %>
-  alm_password: <%= @params['password'] %>
+  # ALM Server
+  # username and password are optional, used for error reporting
+  alm:
+    url: <%= @params['url'] %>
+    api_key: <%= @params['api_key'] %>
+    username: <%= @params['username'] %>
+    password: <%= @params['password'] %>
 
   # Max number of articles to request stats for per request.
   alm_max_articles_per_request: 30
