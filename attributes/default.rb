@@ -8,6 +8,5 @@ default['alm_report']['settings'] = {
   "api_key"             => SecureRandom.hex(20),
   "username"            => nil,
   "password"            => nil,
-  "secret_token"        => SecureRandom.hex(34),
-  "internal_ip_ranges"  => nil
+  "secret_token"        => SecureRandom.hex(34)
 }
