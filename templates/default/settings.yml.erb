@@ -27,6 +27,8 @@ defaults: &defaults
   alm_url: http://alm.plos.org/api/v3/articles
 
   alm_api_key: <%= @params['api_key'] %>
+  alm_username: <%= @params['username'] %>
+  alm_password: <%= @params['password'] %>
 
   # Max number of articles to request stats for per request.
   alm_max_articles_per_request: 30
