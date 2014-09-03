@@ -3,7 +3,7 @@
 defaults: &defaults
   # Configures whether the app starts in 'plos' or 'default' mode, which determines
   # the layouts, styles other relevant properties.
-  mode: 'default'
+  mode: <%= @params['mode'] %>
 
   # Number of articles to display per page on the add-articles and preview-list
   # pages.  (The results metrics page uses a different, smaller value.)
