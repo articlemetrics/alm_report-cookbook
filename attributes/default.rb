@@ -1,6 +1,6 @@
 require 'securerandom'
 
-default['ruby']['packages'] = %w{ libxml2-dev libxslt-dev libmysqlclient-dev nodejs }
+default['ruby']['packages'] = %w{ libxml2-dev libxslt-dev libmysqlclient-dev nodejs avahi-daemon libnss-mdns }
 
 # config/settings.yml
 default['alm_report']['settings'] = {
