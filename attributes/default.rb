@@ -1,6 +1,10 @@
 require 'securerandom'
 
 default['ruby']['packages'] = %w{ libxml2-dev libxslt-dev libmysqlclient-dev nodejs avahi-daemon libnss-mdns }
+default['ruby']['user'] = 'vagrant'
+default['ruby']['group'] = 'vagrant'
+default['ruby']['rails_env'] = "development"
+default['ruby']['db'] = { 'username' => 'vagrant', 'password' => SecureRandom.hex(10), 'host' => 'localhost' }
 
 # config/settings.yml
 default['alm_report']['settings'] = {
