@@ -1,6 +1,7 @@
 # install and configure dependencies
 include_recipe "apt"
 include_recipe "memcached"
+include_recipe "phantomjs"
 
 # install mysql and create configuration file and database
 mysql_rails "alm-report" do
