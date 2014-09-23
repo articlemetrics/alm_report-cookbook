@@ -10,6 +10,7 @@ default['ruby']['db'] = { 'username' => 'vagrant', 'password' => SecureRandom.he
 default['alm_report']['settings'] = {
   "mode"                => "default",
   "solr_url"            => "http://api.plos.org/search",
+  "search"              => "plos",
   "url"                 => "http://alm.plos.org",
   "api_key"             => SecureRandom.hex(20),
   "username"            => nil,

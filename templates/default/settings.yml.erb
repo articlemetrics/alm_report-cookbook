@@ -19,6 +19,7 @@ defaults: &defaults
   viz_limit: 500
 
   solr_url: <%= @params['solr_url'] %>
+  search: <%= @params['search'] %>
 
   # Maximum number of articles we query for in a single request from solr.
   # If this is too high solr will return a 414 "Request-URI Too Large" error.
