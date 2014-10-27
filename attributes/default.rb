@@ -1,6 +1,6 @@
 require 'securerandom'
 
-default['ruby']['packages'] = %w{ libxml2-dev libxslt-dev libmysqlclient-dev nodejs avahi-daemon libnss-mdns }
+default['ruby']['packages'] = %w{ libxml2-dev libxslt-dev libmysqlclient-dev nodejs npm avahi-daemon libnss-mdns }
 default['ruby']['user'] = 'vagrant'
 default['ruby']['group'] = 'vagrant'
 default['ruby']['rails_env'] = "development"
