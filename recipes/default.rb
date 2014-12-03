@@ -34,4 +34,3 @@ capistrano ENV['APPLICATION'] do
   rails_env       ENV['RAILS_ENV']
   action          [:config, :bundle_install, :precompile_assets, :migrate, :restart]
 end
-
