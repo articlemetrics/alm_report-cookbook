@@ -32,6 +32,6 @@ capistrano ENV['APPLICATION'] do
   user            ENV['DEPLOY_USER']
   group           ENV['DEPLOY_GROUP']
   rails_env       ENV['RAILS_ENV']
-  action          [:config, :bundle_install, :asset_precompile, :migrate, :restart]
+  action          [:config, :bundle_install, :precompile_assets, :migrate, :restart]
 end
 
