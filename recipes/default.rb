@@ -3,17 +3,18 @@ include_recipe "apt"
 include_recipe "memcached"
 include_recipe "nodejs"
 
-nodejs_npm 'bower' do
-  path "/home/#{ENV['DEPLOY_USER']}/bower"
-  user ENV['DEPLOY_USER']
-end
-
 # load .env configuration file with ENV variables
 # copy configuration file to shared folder
 dotenv node["application"] do
   dotenv          node["dotenv"]
   action          :nothing
 end.run_action(:load)
+
+# install bower for deploy user
+nodejs_npm 'bower' do
+  path "/home/#{ENV['DEPLOY_USER']}/bower"
+  user ENV['DEPLOY_USER']
+end
 
 # install mysql and create configuration file and database
 mysql_rails ENV['DB_NAME'] do
