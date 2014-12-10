@@ -10,12 +10,6 @@ dotenv node["application"] do
   action          :nothing
 end.run_action(:load)
 
-# install bower for deploy user
-nodejs_npm 'bower' do
-  path "/home/#{ENV['DEPLOY_USER']}/bower"
-  user ENV['DEPLOY_USER']
-end
-
 # install mysql and create configuration file and database
 mysql_rails ENV['DB_NAME'] do
   username        ENV['DB_USERNAME']
@@ -38,5 +32,5 @@ capistrano ENV['APPLICATION'] do
   user            ENV['DEPLOY_USER']
   group           ENV['DEPLOY_GROUP']
   rails_env       ENV['RAILS_ENV']
-  action          [:config, :bundle_install, :bower_install, :precompile_assets, :migrate, :restart]
+  action          [:config, :bundle_install, :npm_install, :bower_install, :precompile_assets, :migrate, :restart]
 end
