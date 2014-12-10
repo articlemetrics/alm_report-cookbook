@@ -3,6 +3,11 @@ include_recipe "apt"
 include_recipe "memcached"
 include_recipe "nodejs"
 
+nodejs_npm 'bower' do
+  path "/home/#{ENV['DEPLOY_USER']}/bower"
+  user ENV['DEPLOY_USER']
+end
+
 # load .env configuration file with ENV variables
 # copy configuration file to shared folder
 dotenv node["application"] do
