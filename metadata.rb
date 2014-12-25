@@ -4,7 +4,7 @@ maintainer_email  "mfenner@plos.org"
 license           "Apache 2.0"
 description       "Configures ALM Reports application"
 long_description  IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version           "0.6.23"
+version           "0.6.24"
 
 # opscode cookbooks
 depends           "apt"
@@ -12,6 +12,7 @@ depends           "memcached"
 depends           "mysql"
 depends           "database"
 depends           "nodejs"
+depends           "phantomjs"
 
 # our own cookbooks
 depends           "ruby", "~> 0.6.0"

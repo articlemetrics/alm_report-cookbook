@@ -2,6 +2,7 @@
 include_recipe "apt"
 include_recipe "memcached"
 include_recipe "nodejs"
+include_recipe "phantomjs"
 
 # load .env configuration file with ENV variables
 # copy configuration file to shared folder
