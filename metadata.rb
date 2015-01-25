@@ -9,7 +9,7 @@ version           "1.0.3"
 # opscode cookbooks
 depends           "apt"
 depends           "memcached"
-depends           "mysql", "~> 5.6.1"
+depends           "mysql"
 depends           "database", "~> 2.3.1"
 depends           "nodejs"
 depends           "phantomjs"
