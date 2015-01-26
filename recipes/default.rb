@@ -1,7 +1,7 @@
 # install and configure dependencies
 include_recipe "apt"
 include_recipe "memcached"
-# include_recipe "nodejs"
+#include_recipe "nodejs"
 include_recipe "phantomjs"
 
 # load .env configuration file with ENV variables
@@ -33,5 +33,5 @@ capistrano ENV['APPLICATION'] do
   user            ENV['DEPLOY_USER']
   group           ENV['DEPLOY_GROUP']
   rails_env       ENV['RAILS_ENV']
-  action          [:config, :bundle_install, :bower_install, :precompile_assets, :migrate, :restart]
+  action          [:config, :bundle_install, :npm_install, :bower_install, :precompile_assets, :migrate, :restart]
 end
